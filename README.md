@@ -1,1 +1,1 @@
-# criador-e-gerenciador-de-senhas
+# Criador e gerenciador de senhas (Com UI) em Python
