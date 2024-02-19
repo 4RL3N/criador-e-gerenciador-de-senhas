@@ -38,11 +38,8 @@ class Mainwindow:
         self.radioButtons = [ self.radioButton1, self.radioButton2, self.radioButton3 ]
         for radioButton in self.radioButtons: radioButton.pack(pady=5, anchor="w")
         self.optionsFrame.grid(row=0, column=0)
-        
-
-
-
-
-
+        self.lengthFrame.grid(row=0, column=1)
+        self.mainWidgets = [ self.frame, self.genPwd, self.viewHistory, self.textBox ]
+        for widget in self.mainWidgets: widget.pack(pady=5)
 
 Mainwindow()
