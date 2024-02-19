@@ -33,4 +33,16 @@ class Mainwindow:
         self.viewHistory = tk.Button(self.main, text="Ver senhas geradas (histórico)", command=self.getHistory)
         self.textBox = tk.Text(self.main, width=25, height=8, relief="solid")
 
+        self.widgetsInFrame = [ self.uppercase, self.specialChar, self.number ]
+        for item in self.widgetsInFrame: item.pack(pady=5, anchor="w")
+        self.radioButtons = [ self.radioButton1, self.radioButton2, self.radioButton3 ]
+        for radioButton in self.radioButtons: radioButton.pack(pady=5, anchor="w")
+        self.optionsFrame.grid(row=0, column=0)
+        
+
+
+
+
+
+
 Mainwindow()
