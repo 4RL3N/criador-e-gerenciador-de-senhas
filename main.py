@@ -42,4 +42,12 @@ class Mainwindow:
         self.mainWidgets = [ self.frame, self.genPwd, self.viewHistory, self.textBox ]
         for widget in self.mainWidgets: widget.pack(pady=5)
 
+def generatePassword(self):
+    if self.val.get() == 1: random.Upper = random.choices(string.ascii_uppercase, k=5)
+    else: random.Upper = []
+    if self.special.get() == 1: random.Special = random.choices("-_@!?.", k=2)
+    else: random.Special = []
+    if self.num.get() == 1: randomNum = random.choices(string.digits, k=5)
+    else: randomNum = []
+
 Mainwindow()
