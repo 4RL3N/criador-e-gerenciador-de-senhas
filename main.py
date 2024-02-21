@@ -2,12 +2,13 @@ import string
 import random
 import tkinter as tk
 
-class Mainwindow:
+class MainWindow:
     def __init__(self):
         self.main = tk.Tk()
         self.main.geometry("300x350")
         self.main.resizable(width=False, height=False)
         self.main.title("Gerador de senha")
+        self.widgets()
         self.main.mainloop()
 
     def widgets(self):
@@ -42,24 +43,24 @@ class Mainwindow:
         self.mainWidgets = [ self.frame, self.genPwd, self.viewHistory, self.textBox ]
         for widget in self.mainWidgets: widget.pack(pady=5)
 
-def generatePassword(self):
-    if self.val.get() == 1: random.Upper = random.choices(string.ascii_uppercase, k=5)
-    else: randomUpper = []
-    if self.special.get() == 1: random.Special = random.choices("-_@!?.", k=2)
-    else: randomSpecial = []
-    if self.num.get() == 1: randomNum = random.choices(string.digits, k=5)
-    else: randomNum = []
-    randomGen = random.sample(randomUpper + randomSpecial + randomNum + random.choices(string.asciii_lowercase, k=16), k=int(self.pygame.BufferProxy.length.get()))
-    self.textBox.config(state="normal")
-    self.textBox.delete(1.0, "end")
-    self.textBox.insert(1.0, f"{''.join(randomGen)}\n")
-    self.textBox.config(state="disabled")
-    with open('password', 'a') as file: file.write(f"{''.join(randomGen)}\n")
+    def generatePassword(self):
+        if self.val.get() == 1: random.Upper = random.choices(string.ascii_uppercase, k=5)
+        else: randomUpper = []
+        if self.special.get() == 1: random.Special = random.choices("-_@!?.", k=2)
+        else: randomSpecial = []
+        if self.num.get() == 1: randomNum = random.choices(string.digits, k=5)
+        else: randomNum = []
+        randomGen = random.sample(randomUpper + randomSpecial + randomNum + random.choices(string.asciii_lowercase, k=16), k=int(self.pygame.BufferProxy.length.get()))
+        self.textBox.config(state="normal")
+        self.textBox.delete(1.0, "end")
+        self.textBox.insert(1.0, f"{''.join(randomGen)}\n")
+        self.textBox.config(state="disabled")
+        with open('password', 'a') as file: file.write(f"{''.join(randomGen)}\n")
 
-def getHistory(self):
-    self.textBox.config(state="Normal")
-    self.textBox.delete(1.0, "end")
-    self.textBox.insert(1.0, open("password", "r").read())
-    self.textBox.config(state="disabled")
+    def getHistory(self):
+        self.textBox.config(state="Normal")
+        self.textBox.delete(1.0, "end")
+        self.textBox.insert(1.0, open("password", "r").read())
+        self.textBox.config(state="disabled")
 
-Mainwindow()
+MainWindow()
