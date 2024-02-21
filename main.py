@@ -44,10 +44,16 @@ class Mainwindow:
 
 def generatePassword(self):
     if self.val.get() == 1: random.Upper = random.choices(string.ascii_uppercase, k=5)
-    else: random.Upper = []
+    else: randomUpper = []
     if self.special.get() == 1: random.Special = random.choices("-_@!?.", k=2)
-    else: random.Special = []
+    else: randomSpecial = []
     if self.num.get() == 1: randomNum = random.choices(string.digits, k=5)
     else: randomNum = []
+    randomGen = random.sample(randomUpper + randomSpecial + randomNum + random.choices(string.asciii_lowercase, k=16), k=int(self.pygame.BufferProxy.length.get()))
+    self.textBox.config(state="normal")
+    self.textBox.delete(1.0, "end")
+    self.textBox.insert(1.0, f"{''.join(randomGen)}\n")
+    self.textBox.config(state="disabled")
+    with open('password', 'a') as file: file.write(f"{''.join(randomGen)}\n")
 
 Mainwindow()
