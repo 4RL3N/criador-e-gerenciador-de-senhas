@@ -56,4 +56,10 @@ def generatePassword(self):
     self.textBox.config(state="disabled")
     with open('password', 'a') as file: file.write(f"{''.join(randomGen)}\n")
 
+def getHistory(self):
+    self.textBox.config(state="Normal")
+    self.textBox.delete(1.0, "end")
+    self.textBox.insert(1.0, open("password", "r").read())
+    self.textBox.config(state="disabled")
+
 Mainwindow()
