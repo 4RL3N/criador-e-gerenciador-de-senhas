@@ -26,7 +26,7 @@ class MainWindow:
         self.lengthFrame = tk.LabelFrame(self.frame, text="Tamanho da senha")
         self.radioButton1 = tk.Radiobutton(self.lengthFrame, text="10", value=10, variable=self.length)
         self.radioButton2 = tk.Radiobutton(self.lengthFrame, text="12", value=12, variable=self.length)
-        self.radioButton3 = tk.Radiobutton(self.lengthFrame, text="14", value=14, variable=self.length)
+        self.radioButton3 = tk.Radiobutton(self.lengthFrame, text="16", value=16, variable=self.length)
         self.length.set("10")
 
         # area das caixa de texto e botôes
@@ -44,22 +44,22 @@ class MainWindow:
         for widget in self.mainWidgets: widget.pack(pady=5)
 
     def generatePassword(self):
-        if self.val.get() == 1: random.Upper = random.choices(string.ascii_uppercase, k=5)
+        if self.val.get() == 1: randomUpper = random.choices(string.ascii_uppercase, k=5)
         else: randomUpper = []
-        if self.special.get() == 1: random.Special = random.choices("-_@!?.", k=2)
+        if self.special.get() == 1: randomSpecial = random.choices("-_@!?.", k=2)
         else: randomSpecial = []
         if self.num.get() == 1: randomNum = random.choices(string.digits, k=5)
         else: randomNum = []
-        randomGen = random.sample(randomUpper + randomSpecial + randomNum + random.choices(string.asciii_lowercase, k=16), k=int(self.pygame.BufferProxy.length.get()))
+        randomGen = random.sample(randomUpper + randomSpecial + randomNum + random.choices(string.ascii_lowercase, k=16), k=int(self.length.get()))
         self.textBox.config(state="normal")
-        self.textBox.delete(1.0, "end")
-        self.textBox.insert(1.0, f"{''.join(randomGen)}\n")
+        self.textBox.delete(1.0,"end")
+        self.textBox.insert(1.0,f"{''.join(randomGen)}\n")
         self.textBox.config(state="disabled")
-        with open('password', 'a') as file: file.write(f"{''.join(randomGen)}\n")
+        with open('password','a') as file: file.write(f"{''.join(randomGen)}\n")
 
     def getHistory(self):
         self.textBox.config(state="Normal")
-        self.textBox.delete(1.0, "end")
+        self.textBox.delete(1.0,"end")
         self.textBox.insert(1.0, open("password", "r").read())
         self.textBox.config(state="disabled")
 
